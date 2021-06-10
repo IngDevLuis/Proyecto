@@ -10,7 +10,7 @@ import {
 } from "./seguridad.js";
 import {
   guardaTenis
-} from "./teniss.js";
+} from "./equiposs.js";
 
 
 /** @type {HTMLFormElement} */

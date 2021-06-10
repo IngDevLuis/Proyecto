@@ -42,7 +42,7 @@ guardaTenis(evt, formData,
   const avatar =
     formData.get("avatar");
     await subeStorage(id, avatar);
-    muestraTenis();
+    muestraEquipos();
   } catch (e) {
     muestraError(e);
   }

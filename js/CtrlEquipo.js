@@ -100,7 +100,7 @@ async function elimina() {
         doc(id).
         delete();
       await eliminaStorage(modelo);
-      muestraTenis();
+      muestraEquipos();
     }
   } catch (e) {
     muestraError(e);

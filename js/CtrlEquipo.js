@@ -12,7 +12,7 @@ import {
   muestraError
 } from "../lib/util.js";
 import {
-  muestraTenis
+  muestraEquipos
 } from "./navegacion.js";
 import {
   tieneRol

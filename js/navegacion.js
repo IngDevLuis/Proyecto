@@ -1,7 +1,7 @@
 export function
-  muestraTenis() {
+  muestraEquipos() {
   location.href =
-    "tenis.html";
+    "equipos.html";
 }
 
 export function

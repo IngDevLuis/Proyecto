@@ -22,6 +22,7 @@ import {
 } from "./usuarios.js";
 
 const params = new URL(location.href).searchParams;
+const id = params.get("id");
 const daoEquipos = getFirestore().
   collection("Equipos");
 /** @type {HTMLFormElement} */

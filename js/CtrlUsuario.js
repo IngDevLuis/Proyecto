@@ -55,13 +55,7 @@ async function busca() {
     if (doc.exists) {
       const data = doc.data();
       forma.cue.value = id || "";
-      img.src =
-        await urlStorage(id);
-      selectEquipos(
-        forma.equiposId,
-        data.equiposId)
-    
-    }
+         }
   } catch (e) {
     muestraError(e);
     muestraUsuarios();

@@ -81,7 +81,7 @@ async function busca() {
   const formData =
     new FormData(forma);
   const id = getString(
-    formData, "modelo").trim();
+    formData, "nombre").trim();
 
   await guardaEquipos(evt,
    formData, id);

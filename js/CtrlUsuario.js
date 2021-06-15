@@ -43,41 +43,11 @@ getAuth().onAuthStateChanged(
 async function protege(usuario) {
   if (tieneRol(usuario,
     ["Administrador"])) {
-      try{
-        busca();
-      }catch(e){
-        muestraError(e);
-      }
-     
+       
     }
 }
 
-async function busca() {
-  try {
-    const doc = await daoEquipos.
-      doc(id).
-      get();
-    if (doc.exists) {
-      const data = doc.data();
-      forma.cue.value = id || "";
-      img.src =
-        await urlStorage(id);
-      selectEquipos(
-        forma.equiposId,
-        data.equiposId)
-      checksRoles(
-        listaRoles, data.rolIds);
-      forma.addEventListener(
-        "submit", guarda);
-      forma.eliminar.
-        addEventListener(
-          "click", elimina);
-    }
-  } catch (e) {
-    muestraError(e);
-    muestraUsuarios();
-  }
-}
+
 
 /** @param {Event} evt */
 async function guarda(evt) {

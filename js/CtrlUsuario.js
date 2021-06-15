@@ -49,16 +49,9 @@ async function protege(usuario) {
 
 async function busca() {
   try {
-    const doc = await daoEquipos.
-      doc(id).
-      get();
-    if (doc.exists) {
-      const data = doc.data();
-      forma.cue.value = id || "";
-         }
+    muestraUsuarios();
   } catch (e) {
     muestraError(e);
-    muestraUsuarios();
   }
 }
 

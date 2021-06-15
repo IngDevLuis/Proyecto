@@ -21,19 +21,7 @@ import {
   selectEquipos
 } from "./usuarios.js";
 
-const params =
-  new URL(location.href).
-    searchParams;
-const id = params.get("id");
-const daoEquipos = getFirestore().
-  collection("Equipos");
-/** @type {HTMLFormElement} */
-const forma = document["forma"];
-const img = document.
-  querySelector("img");
-/** @type {HTMLUListElement} */
-const listaRoles = document.
-  querySelector("#listaRoles");
+
 getAuth().onAuthStateChanged(
   protege, muestraError);
 

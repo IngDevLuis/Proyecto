@@ -18,15 +18,15 @@ import {
 import {
   checksRoles,
   guardaUsuario,
-  selectTenis
+  selectEquipos
 } from "./usuarios.js";
 
 const params =
   new URL(location.href).
     searchParams;
 const id = params.get("id");
-const daoUsuario = getFirestore().
-  collection("Usuario");
+const daoEquipos = getFirestore().
+  collection("Equipos");
 /** @type {HTMLFormElement} */
 const forma = document["forma"];
 const img = document.
@@ -49,7 +49,7 @@ async function protege(usuario) {
 
 async function busca() {
   try {
-    const doc = await daoUsuario.
+    const doc = await daoEquipos.
       doc(id).
       get();
     if (doc.exists) {
@@ -57,9 +57,9 @@ async function busca() {
       forma.cue.value = id || "";
       img.src =
         await urlStorage(id);
-      selectTenis(
-        forma.tenisId,
-        data.tenisId)
+      selectEquipos(
+        forma.equiposId,
+        data.equiposId)
       checksRoles(
         listaRoles, data.rolIds);
       forma.addEventListener(

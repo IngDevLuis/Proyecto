@@ -90,12 +90,11 @@ async function htmlFila(doc) {
       <a class="fila conImagen"
           href=
     "equipo.html?${parámetros}">
-        <span class="marco">
-          <img src="${img}"
-            alt="Falta el Avatar">
-        </span>
+    
         <span class="texto">
-          <strong
+           <img src="${img}"
+            alt="Falta el Avatar">
+            <strong
               class="primario">
             ${nombre}
           </strong>

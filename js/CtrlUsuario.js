@@ -47,6 +47,32 @@ async function protege(usuario) {
     }
 }
 
+async function busca() {
+  try {
+    const doc = await daoEquipos.
+      doc(id).
+      get();
+    if (doc.exists) {
+      const data = doc.data();
+      forma.cue.value = id || "";
+      img.src =
+        await urlStorage(id);
+      selectEquipos(
+        forma.equiposId,
+        data.equiposId)
+      checksRoles(
+        listaRoles, data.rolIds);
+      forma.addEventListener(
+        "submit", guarda);
+      forma.eliminar.
+        addEventListener(
+          "click", elimina);
+    }
+  } catch (e) {
+    muestraError(e);
+    muestraUsuarios();
+  }
+}
 
 
 /** @param {Event} evt */

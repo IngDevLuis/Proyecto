@@ -4,16 +4,16 @@
  */
 
 /**
- * @typedef {Object} Tenis
- * @property {string} marca
- * @property {string} modelo
- * @property {string} lkcompra
+ * @typedef {Object} Equipos
+ * @property {string} nombre
+ * @property {string} pais
+ * @property {string} campeonatos
  */
 
 /**
  * @typedef {Object} Usuario
  * @property {string[]} rolIds
- * @property {string} tenisId
+ * @property {string} equiposId
  */
 
 // @ts-nocheck

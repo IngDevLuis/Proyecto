@@ -13,29 +13,29 @@ import {
 
 
 const firestore = getFirestore();
-const daoTenis = firestore.
-  collection("Tenis");
+const daoEquipos = firestore.
+  collection("Equipos");
 
 /**
  * @param {Event} evt
  * @param {FormData} formData
  * @param {string} id  */
 export async function
-guardaTenis(evt, formData,
+guardaEquipos(evt, formData,
     id) {
   try {
     evt.preventDefault();
-  const marca = 
-    formData.get("marca");
-  const modelo = 
-    formData.get("modelo");
-  const lkcompra = 
-    formData.get("lkcompra");
+  const nombre = 
+    formData.get("nombre");
+  const pais = 
+    formData.get("pais");
+  const campeonatos = 
+    formData.get("campeonatos");
   
     const modeloo = {
-    marca,modelo,lkcompra
+      nombre,pais,campeonatos
     };
-    await daoTenis.
+    await daoEquipos.
     doc(id).
     set(modeloo);
     

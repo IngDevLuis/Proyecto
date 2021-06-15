@@ -11,7 +11,7 @@ import {
 import {
   checksRoles,
   guardaUsuario,
-  selectTenis
+  selectEquipos
 } from "./usuarios.js";
 
 
@@ -32,8 +32,8 @@ async function protege(usuario) {
     ["Administrador"])) {
     forma.addEventListener(
       "submit", guarda);
-    selectTenis(
-      forma.tenisId, "");
+    selectEquipos(
+      forma.equiposId, "");
     checksRoles(listaRoles, []);
   }
 }

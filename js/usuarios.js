@@ -11,16 +11,16 @@ import {
   muestraUsuarios
 } from "./navegacion.js";
 
-const SIN_TENIS = /* html */
+const SIN_EQUIPO = /* html */
   `<option value="">
-    -- Sin Tenis favorito --
+    -- Sin equipo favorito --
   </option>`;
 
 const firestore = getFirestore();
 const daoRol = firestore.
   collection("Rol");
-const daoTenis = firestore.
-  collection("Tenis");
+const daoEquipos = firestore.
+  collection("Equipos");
 const daoUsuario = firestore.
   collection("Usuario");
 
@@ -29,22 +29,22 @@ const daoUsuario = firestore.
     HTMLSelectElement} select
  * @param {string} valor */
 export function
-  selectTenis(select,
+selectEquipos(select,
     valor) {
   valor = valor || "";
-  daoTenis.
-    orderBy("modelo").
+  daoEquipos.
+    orderBy("nombre").
     onSnapshot(
       snap => {
-        let html = SIN_TENIS;
+        let html = SIN_EQUIPO;
         snap.forEach(doc =>
-          html += htmlTenis(
+          html += htmlEquipos(
             doc, valor));
         select.innerHTML = html;
       },
       e => {
         muestraError(e);
-        selectTenis(
+        selectEquipos(
           select, valor);
       }
     );
@@ -56,19 +56,19 @@ export function
   DocumentSnapshot} doc
  * @param {string} valor */
 function
-  htmlTenis(doc, valor) {
+  htmlEquipos(doc, valor) {
   const selected =
     doc.id === valor ?
       "selected" : "";
   /**
    * @type {import("./tipos.js").
-                  Tenis} */
+                  Equipos} */
   const data = doc.data();
   return (/* html */
     `<option
         value="${cod(doc.id)}"
         ${selected}>
-      ${cod(data.modelo)}
+      ${cod(data.nombre)}
     </option>`);
 }
 
@@ -147,15 +147,15 @@ export async function
     id) {
   try {
     evt.preventDefault();
-    const tenisId =
+    const equiposId =
       getForánea(formData,
-        "tenisId");
+        "equiposId");
     const rolIds =
       formData.getAll("rolIds");
     await daoUsuario.
       doc(id).
       set({
-        tenisId,
+        equiposId,
         rolIds
       });
     const avatar =

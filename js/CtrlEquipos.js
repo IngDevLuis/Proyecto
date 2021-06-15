@@ -17,8 +17,8 @@ import {
 const lista = document.
   querySelector("#lista");
 const firestore = getFirestore();
-const daoTenis = firestore.
-  collection("Tenis");
+const daoEquipos = firestore.
+  collection("Equipos");
 
 getAuth().onAuthStateChanged(
   protege, muestraError);
@@ -34,8 +34,8 @@ getAuth().onAuthStateChanged(
     }
 
 function consulta() {
-  daoTenis.
-    orderBy("marca")
+  daoEquipos.
+    orderBy("nombre")
     .onSnapshot(
       htmlLista, errConsulta);
 }
@@ -61,7 +61,7 @@ async function htmlLista(snap) {
   } else {
     html += /* html */
       `<li class="vacio">
-        -- No hay tenis
+        -- No hay equipos
         registrados. --
       </li>`;
   }
@@ -77,11 +77,11 @@ async function htmlFila(doc) {
    * @type {import("./tipos.js").
                       Tenis} */
   const data = doc.data();
-  const marca = cod(data.marca);
-  const modelo = cod(data.modelo);
-  const lkcompra = cod(data.lkcompra);
+  const nombre = cod(data.nombre);
+  const pais = cod(data.pais);
+  const campeonatos = cod(data.campeonatos);
   const img = cod(
-    await urlStorage(modelo));
+    await urlStorage(nombre));
   const parámetros =
   new URLSearchParams();
   parámetros.append("id", doc.id);
@@ -97,12 +97,12 @@ async function htmlFila(doc) {
         <span class="texto">
           <strong
               class="primario">
-            ${marca}
-            ${modelo}
+            ${nombre}
           </strong>
           <span
           class="secundario">
-        ${lkcompra}<br>
+          ${pais}<br>
+          Campeonatos: ${campeonatos}
       </span>
         </span>
       </a>

@@ -9,7 +9,7 @@ import {
   tieneRol
 } from "./seguridad.js";
 import {
-  guardaTenis
+  guardaEquipos
 } from "./equiposs.js";
 
 
@@ -35,8 +35,8 @@ async function guarda(evt) {
   const formData =
     new FormData(forma);
   const id = getString(
-    formData, "modelo").trim();
+    formData, "nombre").trim();
 
-  await guardaTenis(evt,
+  await guardaEquipos(evt,
    formData, id);
 }

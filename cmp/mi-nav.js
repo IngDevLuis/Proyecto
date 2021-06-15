@@ -45,7 +45,7 @@ class MiNav extends HTMLElement {
           </li>
           <li>
           <a href=
-      "equipos.html">Tenis</a>
+      "equipos.html">Equipos de futbol</a>
         </li>`;
       }
       /* Enlaces para solo

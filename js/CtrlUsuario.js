@@ -23,8 +23,8 @@ import {
 
 const params = new URL(location.href).searchParams;
 const id = params.get("id");
-const daoEquipos = getFirestore().
-  collection("Equipos");
+const daoUsuarios = getFirestore().
+  collection("Usuario");
 /** @type {HTMLFormElement} */
 const forma = document["forma"];
 const img = document.
@@ -47,10 +47,24 @@ async function protege(usuario) {
 
 async function busca() {
   try {
-    const doc = await daoEquipos.
+    const doc = await daoUsuarios.
       doc(id).
       get();
-   
+    if (doc.exists) {
+      const data = doc.data();
+      forma.cue.value = id || "";
+      img.src =
+        await urlStorage(id);
+      selectEquipos(
+        forma.equiposId,
+        data.equiposId)
+      checksRoles(
+        listaRoles, data.rolIds);
+      forma.addEventListener(
+        "submit", guarda);
+      forma.eliminar.
+        addEventListener(
+          "click", elimina);
     }
   } catch (e) {
     muestraError(e);

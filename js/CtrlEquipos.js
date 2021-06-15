@@ -101,7 +101,8 @@ async function htmlFila(doc) {
             ${nombre}
           </strong>
           <span
-          class="secundario">
+          class="secundario"
+          align="center">
           ${pais}<br>
           Campeonatos: ${campeonatos}
       </span>

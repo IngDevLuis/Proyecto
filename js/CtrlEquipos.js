@@ -96,7 +96,8 @@ async function htmlFila(doc) {
             alt="Falta el Avatar"
             align="center">
             <strong
-              class="primario">
+              class="primario"
+              align="center">
             ${nombre}
           </strong>
           <span

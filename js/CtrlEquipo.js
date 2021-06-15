@@ -99,7 +99,7 @@ async function elimina() {
       await daoEquipos.
         doc(id).
         delete();
-      await eliminaStorage(modelo);
+      await eliminaStorage(nombre);
       muestraEquipos();
     }
   } catch (e) {

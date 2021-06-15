@@ -93,7 +93,8 @@ async function htmlFila(doc) {
     
         <span class="texto">
            <img src="${img}"
-            alt="Falta el Avatar">
+            alt="Falta el Avatar"
+            align="center">
             <strong
               class="primario">
             ${nombre}

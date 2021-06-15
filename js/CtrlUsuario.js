@@ -60,13 +60,7 @@ async function busca() {
       selectEquipos(
         forma.equiposId,
         data.equiposId)
-      checksRoles(
-        listaRoles, data.rolIds);
-      forma.addEventListener(
-        "submit", guarda);
-      forma.eliminar.
-        addEventListener(
-          "click", elimina);
+    
     }
   } catch (e) {
     muestraError(e);

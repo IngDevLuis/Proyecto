@@ -57,9 +57,7 @@ async function busca() {
       forma.cue.value = id || "";
       img.src =
         await urlStorage(id);
-      selectEquipos(
-        forma.equiposId,
-        data.equiposId)
+    
       checksRoles(
         listaRoles, data.rolIds);
       forma.addEventListener(
